@@ -13,13 +13,16 @@ try:
     lista=json.loads(data)
 except:
     lista={}
+    loja={}
 while True:
-    print("controle")
-    print
-    op=int(inpu(loja))
-    if op == 
+    print("Controle de lojas")
+    print("2- adicionar loja")
+    print("3- editar loja")
+    op=int(input('Digite uma opcao:'))
+    if op == 2:
+        op=int(input("Escreva o nome da loja: "))
         if loja in lista:
-            print loja ja existe
+            print ('Loja ja existe')
         else:
             lista[loja]={}
         
@@ -41,7 +44,7 @@ while True:
                 while cond:
                     qntnovoproduto=int(input('Quantidade inicial: '))
                     if qntnovoproduto > 0:
-                        lista[novoitem]=qntnovoproduto
+                        lista[loja][novoitem]=qntnovoproduto
                         cond=False
                     elif qntnovoproduto < 0:
                         print('A quantida de inicial nao pode ser negativa')
@@ -49,7 +52,7 @@ while True:
         elif escolha == 2:
             delItem=input('Nome do produto: ')
             if delItem in lista:
-                del lista[delItem]
+                del lista[loja][delItem]
             else:
                 print('Elemento nao encontrado')
         
@@ -57,7 +60,7 @@ while True:
             nomeproduto=input('Nome do produto: ')
             if nomeproduto in lista:
                 novaqnt=int(input('Novo estoque de {0}: '.format(nomeproduto)))
-                lista[nomeproduto]=novaqnt
+                lista[loja][nomeproduto]=novaqnt
             else:
                 print('Elemento nao encontrado')
         elif escolha == 4:
